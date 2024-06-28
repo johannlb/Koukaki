@@ -1,0 +1,9 @@
+.titleFade {
+    top: 100px;
+    transition: top 2s, opacity 2s;
+}
+
+.titleFade.animated {
+    top: 0;
+    opacity: 1;
+}

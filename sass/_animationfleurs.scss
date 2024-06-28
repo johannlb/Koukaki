@@ -1,0 +1,52 @@
+/* Définition de l'animation pour faire tourner les fleurs */
+@keyframes rotation-fleur {
+    0% { 
+      transform: rotate(0); 
+    }
+    100% { 
+      transform: rotate(360deg);
+    }
+}
+
+.story h2::after {
+    animation: rotation-fleur 8s linear infinite;
+    width: 155px;
+    height: 154px;
+}
+
+.story__article::after {
+    animation: rotation-fleur 8s linear infinite;
+    transform-origin: 94px 94px;
+}
+
+#studio h2::before {
+    animation: rotation-fleur 8s linear infinite;
+    width: 203px;
+    height: 199px;
+}
+
+#studio h2::after {
+    animation: rotation-fleur 8s linear infinite;
+    width: 109px;
+    height: 109px;
+}
+
+.site-footer ul::after {
+    animation: rotation-fleur 8s linear infinite;
+}
+
+.site-footer::before, .site-footer::after {
+    display: none;
+}
+
+.oscars::before {
+    animation: rotation-fleur 8s linear infinite;
+    width: 155px;
+    height: 154px;
+}
+
+.oscars::after {
+    animation: rotation-fleur 8s linear infinite;
+    width: 173px;
+    height: 165px;
+}

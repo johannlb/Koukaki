@@ -1,0 +1,63 @@
+.oscars {
+    animation: fadeInUp 1s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 10em;
+    @media (max-width: 1192px) {
+        flex-direction: column;
+        align-items: center;
+    }
+    h3 {
+        padding: 80px 80px;
+        background-image: url("../assets/images/orange_nomination_bg.png");
+        line-height: normal;
+        text-align: left;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        @media (max-width: 1192px) {
+            display: flex;
+            justify-content: center;
+        }
+        @media (max-width: 768px) {
+            padding: 70px 70px;
+        }
+    span {
+        display: inline-block;
+        width: 668px;
+        @media (max-width: 1192px) {
+            padding-left: 20px;
+        }
+        @media (max-width: 768px) {
+            width: 320px;
+        font-size: 1.5rem;
+      }
+    }
+}
+  
+    img {
+        object-fit: contain;
+        margin-top: -48px;
+        margin-left: -48px;
+        width: 278px;
+    }
+  
+    &::before {
+        content: url("../assets/images/Sunflower.png");
+        position: absolute;
+        left: 8em;
+        top: 0em;
+        @media (max-width: 699.5px) {
+            display: none;
+        }
+    }
+      
+    &::after {
+        content: url("../assets/images/orchid.png");
+        position: absolute;
+        right: -4em;
+        bottom: 18.5em;
+        @media (max-width: 699.5px) {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,158 @@
+@charset "UTF-8";
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 300px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -20%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+/* Définition de l'animation pour faire tourner les fleurs */
+@keyframes rotation-fleur {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.story h2::after {
+  animation: rotation-fleur 8s linear infinite;
+  width: 155px;
+  height: 154px;
+}
+
+.story__article::after {
+  animation: rotation-fleur 8s linear infinite;
+  transform-origin: 94px 94px;
+}
+
+#studio h2::before {
+  animation: rotation-fleur 8s linear infinite;
+  width: 203px;
+  height: 199px;
+}
+
+#studio h2::after {
+  animation: rotation-fleur 8s linear infinite;
+  width: 109px;
+  height: 109px;
+}
+
+.site-footer ul::after {
+  animation: rotation-fleur 8s linear infinite;
+}
+
+.site-footer::before, .site-footer::after {
+  display: none;
+}
+
+.oscars::before {
+  animation: rotation-fleur 8s linear infinite;
+  width: 155px;
+  height: 154px;
+}
+
+.oscars::after {
+  animation: rotation-fleur 8s linear infinite;
+  width: 173px;
+  height: 165px;
+}
+
+.oscars {
+  animation: fadeInUp 1s;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 10em;
+}
+@media (max-width: 1192px) {
+  .oscars {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.oscars h3 {
+  padding: 80px 80px;
+  background-image: url("../assets/images/orange_nomination_bg.png");
+  line-height: normal;
+  text-align: left;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+@media (max-width: 1192px) {
+  .oscars h3 {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .oscars h3 {
+    padding: 70px 70px;
+  }
+}
+.oscars h3 span {
+  display: inline-block;
+  width: 668px;
+}
+@media (max-width: 1192px) {
+  .oscars h3 span {
+    padding-left: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .oscars h3 span {
+    width: 320px;
+    font-size: 1.5rem;
+  }
+}
+.oscars img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-top: -48px;
+  margin-left: -48px;
+  width: 278px;
+}
+.oscars::before {
+  content: url("../assets/images/Sunflower.png");
+  position: absolute;
+  left: 8em;
+  top: 0em;
+}
+@media (max-width: 699.5px) {
+  .oscars::before {
+    display: none;
+  }
+}
+.oscars::after {
+  content: url("../assets/images/orchid.png");
+  position: absolute;
+  right: -4em;
+  bottom: 18.5em;
+}
+@media (max-width: 699.5px) {
+  .oscars::after {
+    display: none;
+  }
+}
+
+.titleFade {
+  top: 100px;
+  transition: top 2s, opacity 2s;
+}
+
+.titleFade.animated {
+  top: 0;
+  opacity: 1;
+}/*# sourceMappingURL=theme.css.map */
