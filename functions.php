@@ -6,6 +6,11 @@ function theme_enqueue_styles() {
 
 }
 
+add_action( 'wp_enqueue_scripts', 'enqueue_custom_scripts' );
+function enqueue_custom_scripts() {
+    wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/script.js', array(), filemtime(get_stylesheet_directory() . '/js/script.js'), true );
+}
+
 // Get customizer options form parent theme
 if ( get_stylesheet() !== get_template() ) {
     add_filter( 'pre_update_option_theme_mods_' . get_stylesheet(), function ( $value, $old_value ) {

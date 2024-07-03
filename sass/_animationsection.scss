@@ -1,21 +1,45 @@
-@keyframes fadeInUp {
+/* Définition des animations keyframes pour fadeIn */
+@keyframes fadeIn {
+    /* Début de l'animation */
     0% {
-       opacity: 0;
-       transform: translate3d(0, 300px, 0);
+        opacity: 0;
+        transform: translateY(20%);
     }
-    100% {
-       opacity: 1;
-       transform: translate3d(0, 0, 0);
+
+    /* Presque à la fin de l'animation */
+    80%, 100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-@keyframes fadeInDown {
+/* Définition des animations keyframes pour fadeInverse */
+@keyframes fadeInverse {
+    /* Début de l'animation */
     0% {
-       opacity: 0;
-       transform: translate3d(0, -20%, 0);
+        opacity: 0;
+        transform: translateY(-20%);
     }
-    100% {
-       opacity: 1;
-       transform: translate3d(0, 0, 0);
+
+    /* Presque à la fin de l'animation */
+    80%, 100% {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
+
+/* Propriétés communes pour les animations fadeIn et fadeInverse */
+.fadeIn, .fadeInverse {
+    animation-duration: 2s; /* Durée de l'animation */
+    animation-timing-function: ease-in-out; /* Fonction de timing pour l'animation */
+}
+
+/* Application de l'animation fadeIn */
+.fadeIn {
+    animation-name: fadeIn; 
+}
+
+/* Application de l'animation fadeInverse */
+.fadeInverse {
+    animation-name: fadeInverse; 
 }
