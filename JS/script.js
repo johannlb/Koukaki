@@ -33,3 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
         titleObserver.observe(element); // Ajoute chaque titre à l'observer
     });
 });
+
+document.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const bannerContainer = document.querySelector('.banner__container');
+
+    // Applique l'effet de parallaxe au container de la bannière
+    const maxScroll = 500; // Vous pouvez ajuster cette valeur selon vos besoins
+    const startPos = 0;
+    const endPos = 250; // La position finale de transformation
+
+    if (scrollPosition <= maxScroll) {
+        const translateY = startPos + ((endPos - startPos) * (scrollPosition / maxScroll));
+        bannerContainer.style.transform = `translateY(${translateY}px)`;
+    }
+});
