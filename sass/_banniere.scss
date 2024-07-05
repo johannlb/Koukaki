@@ -1,41 +1,42 @@
+/* Styles et animations pour la bannière */
 
 @keyframes floating-logo {
     0% {
-      transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
     }
     50% {
-      transform: translate3d(0, -5%, 0);
+        transform: translate3d(0, -5%, 0);
     }
     100% {
-      transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
 @keyframes fadeInDown {
     0% {
-       opacity: 0;
-       transform: translate3d(0, -20%, 0);
+        opacity: 0;
+        transform: translate3d(0, -20%, 0);
     }
     100% {
-       opacity: 1;
-       transform: translate3d(0, 0, 0);
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
     }
 }
 
 @keyframes fadeInUp {
     0% {
-       opacity: 0;
-       transform: translate3d(0, 300px, 0);
+        opacity: 0;
+        transform: translate3d(0, 300px, 0);
     }
     100% {
-       opacity: 1;
-       transform: translate3d(0, 0, 0);
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
     }
 }
 
-
 .banner {
-    animation: fadeInDown 1s;
+    animation: fadeInDown 1s; /* Animation pour l'apparition de la bannière */
+    
     &__container {
         display: flex;
         justify-content: center;
@@ -46,13 +47,14 @@
 #logo {
     width: 45%;
     position: relative;
-    animation: fadeInUp 1s, floating-logo 6s ease-in-out 1s infinite;
-    z-index:2;
+    animation: fadeInUp 1s, floating-logo 6s ease-in-out 1s infinite; /* Animation pour le logo */
+    z-index: 2;
 }
 
 #header_video {
     position: absolute;
+    
     @media (max-width: 768px) {
-        display: none;
+        display: none; /* Masquer la vidéo sur les écrans plus petits */
     }
 }

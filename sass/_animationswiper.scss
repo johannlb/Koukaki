@@ -1,0 +1,30 @@
+/* Styles pour le composant Swiper */
+
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow: hidden; 
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 420px;
+    height: 420px;
+    text-align: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+}
+
+.swiper-slide h4 {
+    margin-top: -10px;
+}
+
+.tittle-personnages{
+    display: flex;
+    text-align: left;
+}

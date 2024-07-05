@@ -1,5 +1,20 @@
+/*
+  theme.scss
+
+  Ce fichier importe les différents styles nécessaires pour le thème du site.
+
+  - animationsection : Styles pour les animations de sections
+  - animationfleurs : Styles pour les animations des fleurs
+  - sectionnomination : Styles pour la section de nomination
+  - animationtitres : Styles pour les animations de titres
+  - banniere : Styles pour la bannière
+  - animationswiper : Styles pour les animations du Swiper + titre "Les Personnages"
+*/
+
+
 @import 'animationsection';
 @import 'animationfleurs';  
 @import 'sectionnomination';
 @import 'animationtitres';
 @import 'banniere';
+@import 'animationswiper';

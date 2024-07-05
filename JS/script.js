@@ -48,3 +48,26 @@ document.addEventListener('scroll', function() {
         bannerContainer.style.transform = `translateY(${translateY}px)`;
     }
 });
+
+// Initialisation du Swiper avec des options personnalisées
+
+const swiper = new Swiper(".mySwiper", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,  
+    slidesPerView: "auto",
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+   
+    coverflowEffect: {
+        rotate: 40,
+        stretch: 0,
+        depth: 20,
+        modifier: 1,
+        slideShadows: false,
+    },
+    loop: true,
+    
+});

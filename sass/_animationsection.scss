@@ -30,8 +30,8 @@
 
 /* Propriétés communes pour les animations fadeIn et fadeInverse */
 .fadeIn, .fadeInverse {
-    animation-duration: 2s; /* Durée de l'animation */
-    animation-timing-function: ease-in-out; /* Fonction de timing pour l'animation */
+    animation-duration: 2s; 
+    animation-timing-function: ease-in-out; 
 }
 
 /* Application de l'animation fadeIn */

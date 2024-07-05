@@ -1,11 +1,13 @@
+/* Styles pour l'animation des titres */
+
 .titleFade {
     position: relative;
     top: 100px;
     opacity: 0;
-    transition: top 3s, opacity 3s;
+    transition: top 3s, opacity 3s; /* Transition en douceur pour le déplacement et l'opacité */
 }
 
 .titleFade.animated {
     top: 0;
-    opacity: 1;
+    opacity: 1; /* Rend le titre visible et à sa position finale */
 }

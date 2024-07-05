@@ -1,4 +1,16 @@
 @charset "UTF-8";
+/*
+  theme.scss
+
+  Ce fichier importe les différents styles nécessaires pour le thème du site.
+
+  - animationsection : Styles pour les animations de sections
+  - animationfleurs : Styles pour les animations des fleurs
+  - sectionnomination : Styles pour la section de nomination
+  - animationtitres : Styles pour les animations de titres
+  - banniere : Styles pour la bannière
+  - animationswiper : Styles pour les animations du Swiper + titre "Les Personnages"
+*/
 /* Définition des animations keyframes pour fadeIn */
 @keyframes fadeIn {
   /* Début de l'animation */
@@ -27,8 +39,8 @@
 }
 /* Propriétés communes pour les animations fadeIn et fadeInverse */
 .fadeIn, .fadeInverse {
-  animation-duration: 2s; /* Durée de l'animation */
-  animation-timing-function: ease-in-out; /* Fonction de timing pour l'animation */
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
 }
 
 /* Application de l'animation fadeIn */
@@ -93,8 +105,9 @@
   height: 165px;
 }
 
+/* Styles et animations pour la section de nomination */
 .oscars {
-  animation: fadeInUp 1s;
+  animation: fadeInUp 1s; /* Animation pour l'apparition de la section */
   position: relative;
   display: flex;
   justify-content: center;
@@ -169,18 +182,20 @@
   }
 }
 
+/* Styles pour l'animation des titres */
 .titleFade {
   position: relative;
   top: 100px;
   opacity: 0;
-  transition: top 3s, opacity 3s;
+  transition: top 3s, opacity 3s; /* Transition en douceur pour le déplacement et l'opacité */
 }
 
 .titleFade.animated {
   top: 0;
-  opacity: 1;
+  opacity: 1; /* Rend le titre visible et à sa position finale */
 }
 
+/* Styles et animations pour la bannière */
 @keyframes floating-logo {
   0% {
     transform: translate3d(0, 0, 0);
@@ -213,7 +228,7 @@
   }
 }
 .banner {
-  animation: fadeInDown 1s;
+  animation: fadeInDown 1s; /* Animation pour l'apparition de la bannière */
 }
 .banner__container {
   display: flex;
@@ -224,7 +239,7 @@
 #logo {
   width: 45%;
   position: relative;
-  animation: fadeInUp 1s, floating-logo 6s ease-in-out 1s infinite;
+  animation: fadeInUp 1s, floating-logo 6s ease-in-out 1s infinite; /* Animation pour le logo */
   z-index: 2;
 }
 
@@ -233,6 +248,36 @@
 }
 @media (max-width: 768px) {
   #header_video {
-    display: none;
+    display: none; /* Masquer la vidéo sur les écrans plus petits */
   }
+}
+
+/* Styles pour le composant Swiper */
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 420px;
+  height: 420px;
+  text-align: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+.swiper-slide h4 {
+  margin-top: -10px;
+}
+
+.tittle-personnages {
+  display: flex;
+  text-align: left;
 }/*# sourceMappingURL=theme.css.map */
