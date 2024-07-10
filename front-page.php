@@ -43,9 +43,11 @@ get_header();
             </div>
         </article>
 
-            <article id="place">
+        <article id="place">
+                <img class="place--big_cloud" src="<?php echo get_theme_file_uri() . '/assets/images/big_cloud.png'; ?>" alt="Gros nuage qui passe">
+                <img class="place--little_cloud" src="<?php echo get_theme_file_uri() . '/assets/images/little_cloud.png'; ?>" alt="Petit nuage qui passe">
                 <div>
-                    <h3><span class ="titleFade">Le Lieu</span></h3>
+                    <h3><span class="titleFade">Le Lieu</span></h3>
                     <p><?php echo get_theme_mod('place'); ?></p>
                 </div>
 

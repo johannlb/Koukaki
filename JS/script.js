@@ -1,39 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Fonction commune pour l'observation des sections et des titres
     const handleIntersection = (entries, observer, className) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add(className); // Ajoute la classe spécifiée lorsque l'élément entre dans le viewport
-                observer.unobserve(entry.target); // Arrête d'observer l'élément une fois animé
+                entry.target.classList.add(className);
+                observer.unobserve(entry.target);
             }
         });
     };
 
-    // Création de l'observer pour les sections et les titres
     const sectionObserver = new IntersectionObserver((entries, observer) => {
         handleIntersection(entries, observer, 'fadeIn');
     }, {
-        rootMargin: '-100px 0px -100px 0px' // Marges pour déclencher l'animation avant que l'élément soit complètement visible
+        rootMargin: '-100px 0px -100px 0px'
     });
 
-    // Sélection des sections à observer
     document.querySelectorAll('#characters, .story, #place, #studio, .site-footer').forEach(section => {
-        sectionObserver.observe(section); // Ajoute chaque section à l'observer
+        sectionObserver.observe(section);
     });
 
-    // Création de l'observer pour les titres
     const titleObserver = new IntersectionObserver((entries, observer) => {
         handleIntersection(entries, observer, 'animated');
     }, {
-        threshold: 0.5 // L'animation se déclenche lorsque 50% de l'élément est visible
+        threshold: 0.5
     });
 
-    // Sélection des titres à observer
     document.querySelectorAll('.titleFade').forEach(element => {
-        titleObserver.observe(element); // Ajoute chaque titre à l'observer
+        titleObserver.observe(element);
     });
 
-    // Sélection des titres spécifiques pour "Studio" et "Koukaki"
     const studio = document.getElementById('studio');
     const koukaki = document.getElementById('koukaki');
 
@@ -56,20 +50,33 @@ document.addEventListener('scroll', function() {
         const translateY = startPos + ((endPos - startPos) * (scrollPosition / maxScroll));
         bannerContainer.style.transform = `translateY(${translateY}px)`;
     }
-});
+
+       // Animation des nuages
+       const cloudMaxScroll = 1200; // Ajustez cette valeur selon vos besoins
+       const cloudStartPos = 0;
+       const cloudEndPos = -300; // Déplacement des nuages sur 300px vers la gauche
+   
+       const divPlace = document.getElementById("place");
+       if (divPlace) {
+           const bigCloud = divPlace.querySelector(".place--big_cloud");
+           const littleCloud = divPlace.querySelector(".place--little_cloud");
+   
+           const cloudTranslateX = (cloudEndPos - cloudStartPos) * (scrollPosition / cloudMaxScroll);
+           if (bigCloud) bigCloud.style.transform = `translateX(${cloudTranslateX}px)`;
+           if (littleCloud) littleCloud.style.transform = `translateX(${cloudTranslateX}px)`;
+       }
+   });
 
 // Initialisation du Swiper avec des options personnalisées
-
 const swiper = new Swiper(".mySwiper", {
     effect: "coverflow",
     grabCursor: true,
-    centeredSlides: true,  
+    centeredSlides: true,
     slidesPerView: "auto",
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
     },
-   
     coverflowEffect: {
         rotate: 40,
         stretch: 0,
@@ -78,5 +85,4 @@ const swiper = new Swiper(".mySwiper", {
         slideShadows: false,
     },
     loop: true,
-    
 });
