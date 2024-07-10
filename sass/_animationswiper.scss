@@ -7,21 +7,31 @@
     overflow: hidden; 
 }
 
+.swiper-wrapper {
+    position: relative !important;
+    width: 160% !important; 
+    height: 100% !important; 
+    display: flex !important;
+    justify-content: center !important; 
+    align-items: center !important; 
+}
+
 .swiper-slide {
     background-position: center;
     background-size: cover;
-    width: 420px;
-    height: 420px;
+    width: 500px; 
+    height: 500px; 
     text-align: center;
 }
 
 .swiper-slide img {
     display: block;
     width: 100%;
+
 }
 
 .swiper-slide h4 {
-    margin-top: -10px;
+    margin-top: 10px; 
 }
 
 .tittle-personnages{

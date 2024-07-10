@@ -32,6 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.titleFade').forEach(element => {
         titleObserver.observe(element); // Ajoute chaque titre à l'observer
     });
+
+    // Sélection des titres spécifiques pour "Studio" et "Koukaki"
+    const studio = document.getElementById('studio');
+    const koukaki = document.getElementById('koukaki');
+
+    if (studio && koukaki) {
+        titleObserver.observe(studio);
+        titleObserver.observe(koukaki);
+    }
 });
 
 document.addEventListener('scroll', function() {

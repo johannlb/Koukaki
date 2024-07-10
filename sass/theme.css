@@ -195,6 +195,10 @@
   opacity: 1; /* Rend le titre visible et à sa position finale */
 }
 
+.delay {
+  transition-delay: 1s; /* Délai d'1 seconde pour l'animation */
+}
+
 /* Styles et animations pour la bannière */
 @keyframes floating-logo {
   0% {
@@ -260,11 +264,20 @@
   overflow: hidden;
 }
 
+.swiper-wrapper {
+  position: relative !important;
+  width: 160% !important;
+  height: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 420px;
-  height: 420px;
+  width: 500px;
+  height: 500px;
   text-align: center;
 }
 
@@ -274,7 +287,7 @@
 }
 
 .swiper-slide h4 {
-  margin-top: -10px;
+  margin-top: 10px;
 }
 
 .tittle-personnages {

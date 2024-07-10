@@ -11,3 +11,7 @@
     top: 0;
     opacity: 1; /* Rend le titre visible et à sa position finale */
 }
+
+.delay {
+    transition-delay: 1s; /* Délai d'1 seconde pour l'animation */
+}
