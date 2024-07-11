@@ -86,3 +86,31 @@ const swiper = new Swiper(".mySwiper", {
     },
     loop: true,
 });
+
+// ******************* GESTION DU MENU BURGER ******************* //
+    // Ajout d'une classe pour gérer l'ouverture et fermeture du menu
+    // Ajout d'un écouteur d'événement sur un élément ayant la classe 'toggle',
+    // pour ajouter ou supprimer la classe 'open' du corps du document.
+    // Cela pourrait être utilisé pour afficher ou masquer un menu ou d'autres éléments interactifs en CSS.
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        let toggle = document.querySelector(".nav-toggle");
+        let body = document.querySelector("body");
+        let menuLinks = document.querySelectorAll(".menu-on ul li a");
+    
+        // Toggle menu
+        toggle.addEventListener('click', function () {
+            body.classList.toggle('open');
+            toggle.classList.toggle('active');
+            toggle.setAttribute('aria-expanded', toggle.classList.contains('active'));
+        });
+    
+        // Close menu on link click
+        menuLinks.forEach(function(link) {
+            link.addEventListener('click', function () {
+                body.classList.remove('open');
+                toggle.classList.remove('active');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    });
