@@ -50,3 +50,35 @@
     width: 173px;
     height: 165px;
 }
+
+/* Media query pour réduire la taille des fleurs en dessous de 768px */
+@media (max-width: 768px) {
+    .story h2::after {
+        width: 100px;
+        height: 100px;
+    }
+
+    .story__article::after {
+        transform-origin: 50px 50px;
+    }
+
+    #studio h2::before {
+        width: 130px;
+        height: 130px;
+    }
+
+    #studio h2::after {
+        width: 80px;
+        height: 80px;
+    }
+
+    .oscars::before {
+        width: 100px;
+        height: 100px;
+    }
+
+    .oscars::after {
+        width: 110px;
+        height: 110px;
+    }
+}

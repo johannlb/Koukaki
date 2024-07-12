@@ -105,6 +105,32 @@
   height: 165px;
 }
 
+/* Media query pour réduire la taille des fleurs en dessous de 768px */
+@media (max-width: 768px) {
+  .story h2::after {
+    width: 100px;
+    height: 100px;
+  }
+  .story__article::after {
+    transform-origin: 50px 50px;
+  }
+  #studio h2::before {
+    width: 130px;
+    height: 130px;
+  }
+  #studio h2::after {
+    width: 80px;
+    height: 80px;
+  }
+  .oscars::before {
+    width: 100px;
+    height: 100px;
+  }
+  .oscars::after {
+    width: 110px;
+    height: 110px;
+  }
+}
 /* Styles et animations pour la section de nomination */
 .oscars {
   animation: fadeInUp 1s; /* Animation pour l'apparition de la section */
@@ -295,6 +321,31 @@
   text-align: left;
 }
 
+/* Media query pour les écrans en dessous de 768px */
+@media (max-width: 768px) {
+  .swiper-wrapper {
+    flex-direction: column !important;
+    width: 50% !important;
+    left: 55px !important;
+    height: auto !important;
+    justify-content: flex-start !important; /* Aligner les éléments en haut */
+    align-items: center !important; /* Centrer les éléments horizontalement */
+  }
+  .swiper-slide {
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 20px !important; /* Espacement entre les slides */
+  }
+  .swiper {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+  .swiper-pagination,
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important; /* Masquer la pagination et les boutons de navigation */
+  }
+}
 /*
 Ce fichier  définit les styles pour le déplacement des nuages dans la section "place" avec un effet de parallaxe.
 
@@ -633,5 +684,23 @@ body.burger {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@media (max-width: 425px) {
+  .menu-on li {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 850px) {
+  html {
+    overflow-x: hidden;
+  }
+}
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 2rem;
   }
 }/*# sourceMappingURL=theme.css.map */

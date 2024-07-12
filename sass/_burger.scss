@@ -121,6 +121,8 @@
         .nav-toggle.active .l3 {
             transform: translateY(0) rotate(-45deg);
         }
+
+        
       // ******************************Gestion de l'ouverture et fermeture du menu******************************
           .ouvrir {
               display: block;
@@ -282,3 +284,8 @@
             }
         }
         
+        @media (max-width: 425px) {
+            .menu-on li {
+               font-size: 30px;
+            }
+        }

@@ -68,24 +68,80 @@ document.addEventListener('scroll', function() {
    });
 
 // Initialisation du Swiper avec des options personnalisées
-const swiper = new Swiper(".mySwiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    coverflowEffect: {
-        rotate: 40,
-        stretch: 0,
-        depth: 20,
-        modifier: 1,
-        slideShadows: false,
-    },
-    loop: true,
+let swiper;
+
+function initSwiper() {
+    swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        coverflowEffect: {
+            rotate: 40,
+            stretch: 0,
+            depth: 20,
+            modifier: 1,
+            slideShadows: false,
+        },
+        loop: true,
+    });
+}
+
+function destroySwiper() {
+    if (swiper) {
+        swiper.destroy(true, true);
+        swiper = null;
+    }
+}
+
+function checkScreenWidth() {
+    if (window.innerWidth <= 768) {
+        destroySwiper();
+        document.querySelector('.swiper-wrapper').style.flexDirection = 'column';
+        document.querySelector('.swiper-wrapper').style.width = '50%';
+        document.querySelector('.swiper-wrapper').style.left = '150px';
+        document.querySelector('.swiper-wrapper').style.height = 'auto';
+        document.querySelector('.swiper-wrapper').style.justifyContent = 'flex-start';
+        document.querySelector('.swiper-wrapper').style.alignItems = 'center';
+
+        const slides = document.querySelectorAll('.swiper-slide');
+        slides.forEach(slide => {
+            slide.style.width = '100%';
+            slide.style.height = 'auto';
+            slide.style.marginBottom = '20px';
+        });
+
+        const swiperContainer = document.querySelector('.swiper');
+        swiperContainer.style.paddingTop = '20px';
+        swiperContainer.style.paddingBottom = '20px';
+    } else {
+        if (!swiper) {
+            initSwiper();
+        }
+        document.querySelector('.swiper-wrapper').removeAttribute('style');
+        const slides = document.querySelectorAll('.swiper-slide');
+        slides.forEach(slide => {
+            slide.removeAttribute('style');
+        });
+        const swiperContainer = document.querySelector('.swiper');
+        swiperContainer.removeAttribute('style');
+    }
+}
+
+// Initial check on load
+window.addEventListener('load', () => {
+    checkScreenWidth();
+    if (window.innerWidth > 768) {
+        initSwiper();
+    }
 });
+
+// Check on resize
+window.addEventListener('resize', checkScreenWidth);
 
 // ******************* GESTION DU MENU BURGER ******************* //
     // Ajout d'une classe pour gérer l'ouverture et fermeture du menu
