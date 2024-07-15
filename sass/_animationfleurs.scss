@@ -1,84 +1,101 @@
+/* Variables pour les animations */
+$rotation-duration: 8s;
+$rotation-timing: linear;
+$rotation-iteration: infinite;
+
 /* Définition de l'animation pour faire tourner les fleurs */
 @keyframes rotation-fleur {
-    0% { 
-      transform: rotate(0); 
+  0% { 
+    transform: rotate(0); 
+  }
+  100% { 
+    transform: rotate(360deg);
+  }
+}
+
+/* Mixin pour l'animation */
+@mixin rotation-fleur($width, $height, $transform-origin: null) {
+  animation: rotation-fleur $rotation-duration $rotation-timing $rotation-iteration;
+  width: $width;
+  height: $height;
+  @if $transform-origin {
+    transform-origin: $transform-origin;
+  }
+}
+
+.story {
+  h2::after {
+    @include rotation-fleur(155px, 154px);
+  }
+
+  &__article::after {
+    @include rotation-fleur(null, null, 94px 94px);
+  }
+}
+
+#studio {
+  h2 {
+    &::before {
+      @include rotation-fleur(203px, 199px);
     }
-    100% { 
-      transform: rotate(360deg);
+
+    &::after {
+      @include rotation-fleur(109px, 109px);
     }
+  }
 }
 
-.story h2::after {
-    animation: rotation-fleur 8s linear infinite;
-    width: 155px;
-    height: 154px;
-}
+.site-footer {
+  ul::after {
+    @include rotation-fleur(null, null);
+  }
 
-.story__article::after {
-    animation: rotation-fleur 8s linear infinite;
-    transform-origin: 94px 94px;
-}
-
-#studio h2::before {
-    animation: rotation-fleur 8s linear infinite;
-    width: 203px;
-    height: 199px;
-}
-
-#studio h2::after {
-    animation: rotation-fleur 8s linear infinite;
-    width: 109px;
-    height: 109px;
-}
-
-.site-footer ul::after {
-    animation: rotation-fleur 8s linear infinite;
-}
-
-.site-footer::before, .site-footer::after {
+  &::before, &::after {
     display: none;
+  }
 }
 
-.oscars::before {
-    animation: rotation-fleur 8s linear infinite;
-    width: 155px;
-    height: 154px;
-}
+.oscars {
+  &::before {
+    @include rotation-fleur(155px, 154px);
+  }
 
-.oscars::after {
-    animation: rotation-fleur 8s linear infinite;
-    width: 173px;
-    height: 165px;
+  &::after {
+    @include rotation-fleur(173px, 165px);
+  }
 }
 
 /* Media query pour réduire la taille des fleurs en dessous de 768px */
 @media (max-width: 768px) {
-    .story h2::after {
-        width: 100px;
-        height: 100px;
+  .story {
+    h2::after {
+      @include rotation-fleur(100px, 100px);
     }
 
-    .story__article::after {
-        transform-origin: 50px 50px;
+    &__article::after {
+      transform-origin: 50px 50px;
+    }
+  }
+
+  #studio {
+    h2 {
+      &::before {
+        @include rotation-fleur(130px, 130px);
+      }
+
+      &::after {
+        @include rotation-fleur(80px, 80px);
+      }
+    }
+  }
+
+  .oscars {
+    &::before {
+      @include rotation-fleur(100px, 100px);
     }
 
-    #studio h2::before {
-        width: 130px;
-        height: 130px;
+    &::after {
+      @include rotation-fleur(110px, 110px);
     }
-
-    #studio h2::after {
-        width: 80px;
-        height: 80px;
-    }
-
-    .oscars::before {
-        width: 100px;
-        height: 100px;
-    }
-
-    .oscars::after {
-        width: 110px;
-        height: 110px;
-    }
+  }
 }

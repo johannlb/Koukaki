@@ -53,6 +53,7 @@
   animation-name: fadeInverse;
 }
 
+/* Variables pour les animations */
 /* Définition de l'animation pour faire tourner les fleurs */
 @keyframes rotation-fleur {
   0% {
@@ -62,12 +63,12 @@
     transform: rotate(360deg);
   }
 }
+/* Mixin pour l'animation */
 .story h2::after {
   animation: rotation-fleur 8s linear infinite;
   width: 155px;
   height: 154px;
 }
-
 .story__article::after {
   animation: rotation-fleur 8s linear infinite;
   transform-origin: 94px 94px;
@@ -78,7 +79,6 @@
   width: 203px;
   height: 199px;
 }
-
 #studio h2::after {
   animation: rotation-fleur 8s linear infinite;
   width: 109px;
@@ -88,7 +88,6 @@
 .site-footer ul::after {
   animation: rotation-fleur 8s linear infinite;
 }
-
 .site-footer::before, .site-footer::after {
   display: none;
 }
@@ -98,7 +97,6 @@
   width: 155px;
   height: 154px;
 }
-
 .oscars::after {
   animation: rotation-fleur 8s linear infinite;
   width: 173px;
@@ -108,6 +106,7 @@
 /* Media query pour réduire la taille des fleurs en dessous de 768px */
 @media (max-width: 768px) {
   .story h2::after {
+    animation: rotation-fleur 8s linear infinite;
     width: 100px;
     height: 100px;
   }
@@ -115,18 +114,22 @@
     transform-origin: 50px 50px;
   }
   #studio h2::before {
+    animation: rotation-fleur 8s linear infinite;
     width: 130px;
     height: 130px;
   }
   #studio h2::after {
+    animation: rotation-fleur 8s linear infinite;
     width: 80px;
     height: 80px;
   }
   .oscars::before {
+    animation: rotation-fleur 8s linear infinite;
     width: 100px;
     height: 100px;
   }
   .oscars::after {
+    animation: rotation-fleur 8s linear infinite;
     width: 110px;
     height: 110px;
   }

@@ -1,3 +1,6 @@
+// Section pour l'animation des titres et sections
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const handleIntersection = (entries, observer, className) => {
         entries.forEach(entry => {
@@ -37,14 +40,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Section pour le comportement au scroll
+
+
 document.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
     const bannerContainer = document.querySelector('.banner__container');
 
     // Applique l'effet de parallaxe au container de la bannière
-    const maxScroll = 500; // Vous pouvez ajuster cette valeur selon vos besoins
+    const maxScroll = 500; 
     const startPos = 0;
-    const endPos = 250; // La position finale de transformation
+    const endPos = 250; 
 
     if (scrollPosition <= maxScroll) {
         const translateY = startPos + ((endPos - startPos) * (scrollPosition / maxScroll));
@@ -52,9 +58,9 @@ document.addEventListener('scroll', function() {
     }
 
        // Animation des nuages
-       const cloudMaxScroll = 1200; // Ajustez cette valeur selon vos besoins
+       const cloudMaxScroll = 1200; 
        const cloudStartPos = 0;
-       const cloudEndPos = -300; // Déplacement des nuages sur 300px vers la gauche
+       const cloudEndPos = -300; 
    
        const divPlace = document.getElementById("place");
        if (divPlace) {
@@ -67,7 +73,9 @@ document.addEventListener('scroll', function() {
        }
    });
 
-// Initialisation du Swiper avec des options personnalisées
+// Section pour le swiper
+
+    // Initialisation du Swiper avec des options personnalisées
 let swiper;
 
 function initSwiper() {
@@ -132,7 +140,6 @@ function checkScreenWidth() {
     }
 }
 
-// Initial check on load
 window.addEventListener('load', () => {
     checkScreenWidth();
     if (window.innerWidth > 768) {
@@ -140,28 +147,24 @@ window.addEventListener('load', () => {
     }
 });
 
-// Check on resize
 window.addEventListener('resize', checkScreenWidth);
 
-// ******************* GESTION DU MENU BURGER ******************* //
-    // Ajout d'une classe pour gérer l'ouverture et fermeture du menu
-    // Ajout d'un écouteur d'événement sur un élément ayant la classe 'toggle',
-    // pour ajouter ou supprimer la classe 'open' du corps du document.
-    // Cela pourrait être utilisé pour afficher ou masquer un menu ou d'autres éléments interactifs en CSS.
+//Section pour le menu burger
+
     
     document.addEventListener('DOMContentLoaded', function () {
         let toggle = document.querySelector(".nav-toggle");
         let body = document.querySelector("body");
         let menuLinks = document.querySelectorAll(".menu-on ul li a");
     
-        // Toggle menu
+        // Basculer le menu
         toggle.addEventListener('click', function () {
             body.classList.toggle('open');
             toggle.classList.toggle('active');
             toggle.setAttribute('aria-expanded', toggle.classList.contains('active'));
         });
     
-        // Close menu on link click
+        // Fermer le menu en cliquant sur un lien
         menuLinks.forEach(function(link) {
             link.addEventListener('click', function () {
                 body.classList.remove('open');
