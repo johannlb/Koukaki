@@ -58,19 +58,36 @@ document.addEventListener('scroll', function() {
     }
 
        // Animation des nuages
-       const cloudMaxScroll = 1200; 
-       const cloudStartPos = 0;
-       const cloudEndPos = -300; 
-   
-       const divPlace = document.getElementById("place");
-       if (divPlace) {
-           const bigCloud = divPlace.querySelector(".place--big_cloud");
-           const littleCloud = divPlace.querySelector(".place--little_cloud");
-   
-           const cloudTranslateX = (cloudEndPos - cloudStartPos) * (scrollPosition / cloudMaxScroll);
-           if (bigCloud) bigCloud.style.transform = `translateX(${cloudTranslateX}px)`;
-           if (littleCloud) littleCloud.style.transform = `translateX(${cloudTranslateX}px)`;
-       }
+const cloudMaxScroll = 1200; 
+const cloudStartPos = 0;
+const cloudEndPos = -300; 
+
+const divPlace = document.getElementById("place");
+if (divPlace) {
+    const bigCloud = divPlace.querySelector(".place--big_cloud");
+    const littleCloud = divPlace.querySelector(".place--little_cloud");
+
+    // Fonction pour animer les nuages
+    const animateClouds = () => {
+        // Vérifie si la largeur de la fenêtre est supérieure à 768px (taille typique pour mobile)
+        if (window.innerWidth > 768) {
+            const scrollPosition = window.scrollY; // Position de défilement actuelle
+            const cloudTranslateX = (cloudEndPos - cloudStartPos) * (scrollPosition / cloudMaxScroll);
+            if (bigCloud) bigCloud.style.transform = `translateX(${cloudTranslateX}px)`;
+            if (littleCloud) littleCloud.style.transform = `translateX(${cloudTranslateX}px)`;
+        } else {
+            // Réinitialiser la position des nuages sur les mobiles
+            if (bigCloud) bigCloud.style.transform = `translateX(0px)`;
+            if (littleCloud) littleCloud.style.transform = `translateX(0px)`;
+        }
+    };
+
+    // Écoute l'événement de défilement
+    window.addEventListener('scroll', animateClouds);
+
+    // Appelle la fonction initialement pour s'assurer que les nuages sont positionnés correctement
+    animateClouds();
+}
    });
 
 // Section pour le swiper

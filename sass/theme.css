@@ -292,7 +292,6 @@
   padding-bottom: 50px;
   overflow: hidden;
 }
-
 .swiper-wrapper {
   position: relative !important;
   width: 160% !important;
@@ -301,7 +300,6 @@
   justify-content: center !important;
   align-items: center !important;
 }
-
 .swiper-slide {
   background-position: center;
   background-size: cover;
@@ -309,14 +307,34 @@
   height: 500px;
   text-align: center;
 }
-
 .swiper-slide img {
   display: block;
   width: 100%;
 }
-
 .swiper-slide h4 {
   margin-top: 10px;
+}
+@media (max-width: 768px) {
+  .swiper {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+  .swiper-wrapper {
+    flex-direction: column !important;
+    width: 50% !important;
+    left: 55px !important;
+    height: auto !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+  }
+  .swiper-slide {
+    width: 100% !important;
+    height: auto !important;
+    margin-bottom: 20px !important;
+  }
+  .swiper-pagination, .swiper-button-next, .swiper-button-prev {
+    display: none !important;
+  }
 }
 
 .tittle-personnages {
@@ -324,31 +342,6 @@
   text-align: left;
 }
 
-/* Media query pour les écrans en dessous de 768px */
-@media (max-width: 768px) {
-  .swiper-wrapper {
-    flex-direction: column !important;
-    width: 50% !important;
-    left: 55px !important;
-    height: auto !important;
-    justify-content: flex-start !important; /* Aligner les éléments en haut */
-    align-items: center !important; /* Centrer les éléments horizontalement */
-  }
-  .swiper-slide {
-    width: 100% !important;
-    height: auto !important;
-    margin-bottom: 20px !important; /* Espacement entre les slides */
-  }
-  .swiper {
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
-  }
-  .swiper-pagination,
-  .swiper-button-next,
-  .swiper-button-prev {
-    display: none !important; /* Masquer la pagination et les boutons de navigation */
-  }
-}
 /*
 Ce fichier  définit les styles pour le déplacement des nuages dans la section "place" avec un effet de parallaxe.
 
@@ -401,6 +394,15 @@ Ce fichier  définit les styles pour le déplacement des nuages dans la section 
   justify-content: center;
   align-items: center;
 }
+.nav-toggle.active .l1 {
+  transform: translateY(0px) rotate(45deg);
+}
+.nav-toggle.active .l2 {
+  opacity: 0;
+}
+.nav-toggle.active .l3 {
+  transform: translateY(0px) rotate(-45deg);
+}
 
 .main-navigation .line {
   height: 3px;
@@ -410,37 +412,6 @@ Ce fichier  définit les styles pour le déplacement des nuages dans la section 
   margin-block: 2px;
   width: 35px;
 }
-
-.line {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: black;
-  transition: transform 0.3s ease-out;
-  opacity: 0.1s ease-out;
-}
-
-.l1 {
-  transform: translateY(-10px);
-}
-
-.l3 {
-  transform: translateY(10px);
-}
-
-.nav-toggle.active .l1 {
-  transform: translateY(0px) rotate(135deg);
-}
-
-.nav-toggle.active .l2 {
-  opacity: 0;
-}
-
-.nav-toggle.active .l3 {
-  transform: translateY(0px) rotate(-135deg);
-}
-
 @media screen and (max-width: 700px) {
   .main-navigation ul {
     display: flex !important;
@@ -455,16 +426,25 @@ Ce fichier  définit les styles pour le déplacement des nuages dans la section 
 .main-navigation.menu-burger {
   height: 80px;
 }
-
 .main-navigation.menu-burger ul {
   display: flex;
 }
 
-body.burger {
-  max-width: 1440px;
+.line {
+  position: absolute;
+  display: block;
   width: 100%;
-  margin: 0 auto;
-  overflow-x: hidden;
+  height: 2px;
+  background: black;
+  transition: transform 0.3s ease-out, opacity 0.1s ease-out;
+}
+
+.l1 {
+  transform: translateY(-10px);
+}
+
+.l3 {
+  transform: translateY(10px);
 }
 
 .burger.open {
@@ -486,37 +466,19 @@ body.burger {
   visibility: hidden;
   transition: opacity 1s ease, visibility 0.5s ease;
 }
-
 .menu-on ul {
   display: flex;
   flex-direction: column;
   padding: 2rem;
 }
-
-.menu-on li {
+.menu-on ul li {
   font-size: 65px;
   line-height: 110px;
-}
-
-.menu-on ul li {
   margin-bottom: 2rem;
 }
-
-.menu-on li a:hover {
+.menu-on ul li a:hover {
   color: black;
   text-shadow: 0px 0px 14px #FF5C00;
-}
-
-.nav-toggle.active .l1 {
-  transform: translateY(0) rotate(45deg);
-}
-
-.nav-toggle.active .l2 {
-  opacity: 0;
-}
-
-.nav-toggle.active .l3 {
-  transform: translateY(0) rotate(-45deg);
 }
 
 .ouvrir {
@@ -530,11 +492,9 @@ body.burger {
 .open .ouvrir {
   display: none;
 }
-
 .open .fermer {
   display: block;
 }
-
 .open .menu-on {
   opacity: 1;
   visibility: visible;
@@ -544,8 +504,8 @@ body.burger {
 .logo-menu {
   text-align: center;
   padding: 2rem;
+  animation: floatBanner 2s ease-in-out infinite alternate;
 }
-
 .logo-menu img {
   width: 180px;
   height: auto;
@@ -564,91 +524,59 @@ body.burger {
 .images-menu img {
   position: absolute;
 }
-
-.orchidee {
+.images-menu img.orchidee {
   top: 5em;
   left: -5%;
   animation: rotation-fleur 10s linear infinite;
-}
-
-.images-menu img.orchidee {
   width: 10%;
   height: auto;
 }
-
-.flower {
+.images-menu img.flower {
   top: 42em;
   left: 19em;
   animation: rotation-fleur 10s linear infinite;
-}
-
-.images-menu img.flower {
   width: 5%;
   height: auto;
 }
-
-.marguerite {
+.images-menu img.marguerite {
   top: 13em;
   right: 19em;
   animation: rotation-fleur 10s linear infinite;
-}
-
-.images-menu img.marguerite {
   width: 13%;
   height: auto;
 }
-
-.hibiscus {
-  right: -300px;
-  animation: rotation-fleur 10s linear infinite;
-  bottom: -275px;
-}
-
 .images-menu img.hibiscus {
+  right: -300px;
+  bottom: -275px;
+  animation: rotation-fleur 10s linear infinite;
   height: auto;
   filter: blur(4px);
 }
-
-.flower-random {
-  right: -35px;
-  animation: rotation-fleur 10s linear infinite;
-  top: 30em;
-}
-
 .images-menu img.flower-random {
+  right: -35px;
+  top: 30em;
+  animation: rotation-fleur 10s linear infinite;
   width: 5%;
   height: auto;
 }
-
-.catpurple {
+.images-menu img.catpurple {
   top: 16em;
   left: 21em;
   animation: float 2s infinite ease-in-out;
-}
-
-.images-menu img.catpurple {
   width: 10%;
   height: auto;
 }
-
-.cat-orange {
+.images-menu img.cat-orange {
   top: 58em;
   left: 7em;
   animation: float 2.5s infinite ease-in-out;
-}
-
-.images-menu img.cat-orange {
   width: 9%;
   height: auto;
 }
-
-.cat-grey {
+.images-menu img.cat-grey {
   top: 43em;
   right: 18em;
   animation: float 1.8s infinite ease-in-out;
-}
-
-.images-menu img.cat-grey {
   width: 9%;
   height: auto;
 }
@@ -664,12 +592,6 @@ body.burger {
     transform: translate3d(0, 0, 0);
   }
 }
-.logo-menu {
-  text-align: center;
-  padding: 2rem;
-  animation: floatBanner 2s ease-in-out infinite alternate;
-}
-
 @keyframes floatBanner {
   0%, 100% {
     transform: translate3d(0, 0, 0);
@@ -689,11 +611,18 @@ body.burger {
     transform: rotate(360deg);
   }
 }
-@media (max-width: 425px) {
-  .menu-on li {
-    font-size: 30px;
+@media (max-width: 600px) {
+  .menu-on ul li {
+    font-size: 50px;
   }
 }
+body.burger {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
 @media screen and (max-width: 850px) {
   html {
     overflow-x: hidden;

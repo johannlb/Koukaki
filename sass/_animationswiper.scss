@@ -4,68 +4,62 @@
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
-    overflow: hidden; 
-}
+    overflow: hidden;
 
-.swiper-wrapper {
-    position: relative !important;
-    width: 160% !important; 
-    height: 100% !important; 
-    display: flex !important;
-    justify-content: center !important; 
-    align-items: center !important; 
-}
-
-.swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 500px; 
-    height: 500px; 
-    text-align: center;
-}
-
-.swiper-slide img {
-    display: block;
-    width: 100%;
-
-}
-
-.swiper-slide h4 {
-    margin-top: 10px; 
-}
-
-.tittle-personnages{
-    display: flex;
-    text-align: left;
-}
-
-/* Media query pour les écrans en dessous de 768px */
-@media (max-width: 768px) {
-    .swiper-wrapper {
-        flex-direction: column !important;
-        width: 50% !important;
-        left: 55px !important;
-        height: auto !important;
-        justify-content: flex-start !important; /* Aligner les éléments en haut */
-        align-items: center !important; /* Centrer les éléments horizontalement */
+    &-wrapper {
+        position: relative !important;
+        width: 160% !important;
+        height: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
     }
 
-    .swiper-slide {
-        width: 100% !important;
-        height: auto !important;
-        margin-bottom: 20px !important; /* Espacement entre les slides */
+    &-slide {
+        background-position: center;
+        background-size: cover;
+        width: 500px;
+        height: 500px;
+        text-align: center;
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        h4 {
+            margin-top: 10px;
+        }
     }
 
-    .swiper {
+    @media (max-width: 768px) {
+        &-wrapper {
+            flex-direction: column !important;
+            width: 50% !important;
+            left: 55px !important;
+            height: auto !important;
+            justify-content: flex-start !important;
+            align-items: center !important;
+        }
+
+        &-slide {
+            width: 100% !important;
+            height: auto !important;
+            margin-bottom: 20px !important;
+        }
+
         padding-top: 20px !important;
         padding-bottom: 20px !important;
-    }
 
-    .swiper-pagination,
-    .swiper-button-next,
-    .swiper-button-prev {
-        display: none !important; /* Masquer la pagination et les boutons de navigation */
+        &-pagination,
+        &-button-next,
+        &-button-prev {
+            display: none !important;
+        }
     }
+}
 
-    
+.tittle-personnages {
+    display: flex;
+    text-align: left;
 }
