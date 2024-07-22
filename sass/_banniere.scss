@@ -35,12 +35,20 @@
 }
 
 .banner {
+   
+    background-image: url('assets/images/banner.png');
+    background-size: cover;
+    background-position: center;
     animation: fadeInDown 1s; /* Animation pour l'apparition de la bannière */
     
     &__container {
         display: flex;
         justify-content: center;
         width: 100%;
+    }
+
+    &.video-loaded {
+        background-image: none;
     }
 }
 

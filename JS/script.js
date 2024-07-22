@@ -1,6 +1,3 @@
-// Section pour l'animation des titres et sections
-
-
 document.addEventListener('DOMContentLoaded', () => {
     const handleIntersection = (entries, observer, className) => {
         entries.forEach(entry => {
@@ -38,10 +35,23 @@ document.addEventListener('DOMContentLoaded', () => {
         titleObserver.observe(studio);
         titleObserver.observe(koukaki);
     }
+
+    const video = document.getElementById('header_video');
+    const banner = document.querySelector('.banner');
+
+      // Ajouter un délai avant de lancer la vidéo
+      setTimeout(() => {
+        if (window.innerWidth > 768) {
+            video.play().then(() => {
+                banner.classList.add('video-loaded');
+            }).catch(error => {
+                console.error('Error playing video:', error);
+            });
+        } else {
+            banner.classList.add('video-loaded');
+        }
+    }, 1000); // Délai de 1 seconde
 });
-
-// Section pour le comportement au scroll
-
 
 document.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
@@ -57,42 +67,39 @@ document.addEventListener('scroll', function() {
         bannerContainer.style.transform = `translateY(${translateY}px)`;
     }
 
-       // Animation des nuages
-const cloudMaxScroll = 1200; 
-const cloudStartPos = 0;
-const cloudEndPos = -300; 
+    // Animation des nuages
+    const cloudMaxScroll = 1200; 
+    const cloudStartPos = 0;
+    const cloudEndPos = -300; 
 
-const divPlace = document.getElementById("place");
-if (divPlace) {
-    const bigCloud = divPlace.querySelector(".place--big_cloud");
-    const littleCloud = divPlace.querySelector(".place--little_cloud");
+    const divPlace = document.getElementById("place");
+    if (divPlace) {
+        const bigCloud = divPlace.querySelector(".place--big_cloud");
+        const littleCloud = divPlace.querySelector(".place--little_cloud");
 
-    // Fonction pour animer les nuages
-    const animateClouds = () => {
-        // Vérifie si la largeur de la fenêtre est supérieure à 768px (taille typique pour mobile)
-        if (window.innerWidth > 768) {
-            const scrollPosition = window.scrollY; // Position de défilement actuelle
-            const cloudTranslateX = (cloudEndPos - cloudStartPos) * (scrollPosition / cloudMaxScroll);
-            if (bigCloud) bigCloud.style.transform = `translateX(${cloudTranslateX}px)`;
-            if (littleCloud) littleCloud.style.transform = `translateX(${cloudTranslateX}px)`;
-        } else {
-            // Réinitialiser la position des nuages sur les mobiles
-            if (bigCloud) bigCloud.style.transform = `translateX(0px)`;
-            if (littleCloud) littleCloud.style.transform = `translateX(0px)`;
-        }
-    };
+        // Fonction pour animer les nuages
+        const animateClouds = () => {
+            // Vérifie si la largeur de la fenêtre est supérieure à 768px (taille typique pour mobile)
+            if (window.innerWidth > 768) {
+                const scrollPosition = window.scrollY; // Position de défilement actuelle
+                const cloudTranslateX = (cloudEndPos - cloudStartPos) * (scrollPosition / cloudMaxScroll);
+                if (bigCloud) bigCloud.style.transform = `translateX(${cloudTranslateX}px)`;
+                if (littleCloud) littleCloud.style.transform = `translateX(${cloudTranslateX}px)`;
+            } else {
+                // Réinitialiser la position des nuages sur les mobiles
+                if (bigCloud) bigCloud.style.transform = `translateX(0px)`;
+                if (littleCloud) littleCloud.style.transform = `translateX(0px)`;
+            }
+        };
 
-    // Écoute l'événement de défilement
-    window.addEventListener('scroll', animateClouds);
+        // Écoute l'événement de défilement
+        window.addEventListener('scroll', animateClouds);
 
-    // Appelle la fonction initialement pour s'assurer que les nuages sont positionnés correctement
-    animateClouds();
-}
-   });
+        // Appelle la fonction initialement pour s'assurer que les nuages sont positionnés correctement
+        animateClouds();
+    }
+});
 
-// Section pour le swiper
-
-    // Initialisation du Swiper avec des options personnalisées
 let swiper;
 
 function initSwiper() {
@@ -166,27 +173,24 @@ window.addEventListener('load', () => {
 
 window.addEventListener('resize', checkScreenWidth);
 
-//Section pour le menu burger
+document.addEventListener('DOMContentLoaded', function () {
+    let toggle = document.querySelector(".nav-toggle");
+    let body = document.querySelector("body");
+    let menuLinks = document.querySelectorAll(".menu-on ul li a");
 
-    
-    document.addEventListener('DOMContentLoaded', function () {
-        let toggle = document.querySelector(".nav-toggle");
-        let body = document.querySelector("body");
-        let menuLinks = document.querySelectorAll(".menu-on ul li a");
-    
-        // Basculer le menu
-        toggle.addEventListener('click', function () {
-            body.classList.toggle('open');
-            toggle.classList.toggle('active');
-            toggle.setAttribute('aria-expanded', toggle.classList.contains('active'));
-        });
-    
-        // Fermer le menu en cliquant sur un lien
-        menuLinks.forEach(function(link) {
-            link.addEventListener('click', function () {
-                body.classList.remove('open');
-                toggle.classList.remove('active');
-                toggle.setAttribute('aria-expanded', 'false');
-            });
+    // Basculer le menu
+    toggle.addEventListener('click', function () {
+        body.classList.toggle('open');
+        toggle.classList.toggle('active');
+        toggle.setAttribute('aria-expanded', toggle.classList.contains('active'));
+    });
+
+    // Fermer le menu en cliquant sur un lien
+    menuLinks.forEach(function(link) {
+        link.addEventListener('click', function () {
+            body.classList.remove('open');
+            toggle.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
         });
     });
+});

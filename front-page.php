@@ -5,14 +5,14 @@ get_header();
 
     <main id="primary" class="site-main">
         
-        <section class="banner">
-            <video id="header_video" autoplay muted loop>
-                <source src="<?php echo get_stylesheet_directory_uri() . '/assets/video/studio_koukaki.mp4'; ?>" type="video/mp4">
-            </video>
-            <div class="banner__container">
-            <img id="logo" src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?>" alt="logo Fleurs d'oranger & chats errants">
-            </div>
-        </section>
+    <section class="banner" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/banner.png');">
+    <video id="header_video" muted loop>
+        <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/video/studio_koukaki.mp4" type="video/mp4">
+    </video>
+    <div class="banner__container">
+        <img id="logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="logo Fleurs d'oranger & chats errants">
+    </div>
+</section>
 
         <section id="story" class="story">
             <h2><span class="titleFade">L'histoire</span></h2>
